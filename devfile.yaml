@@ -1,0 +1,17 @@
+schemaVersion: 2.1.0
+metadata:
+  name: my-app
+  version: "1.0.0"
+components:
+  - name: runtime
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8
+commands:
+  - id: run
+    exec:
+      commandLine: "python -c \"with open('output.txt', 'w') as f: f.write('Hello, World!')\""
+      component: runtime
+      workingDir: /projects
+      group:
+        isDefault: true
+        kind: run
